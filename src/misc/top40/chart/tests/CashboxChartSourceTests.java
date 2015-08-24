@@ -22,12 +22,21 @@ public class CashboxChartSourceTests {
 		assertEquals(cashbox.latestDate(),  ChartDate.of(1996,11,16));
 	}
 
+	private void assertCanGetChartForChartSourceByDate(ChartSource source, ChartDate date) {
+		Chart chart = source.getChart(date);
+		assertNotNull(chart);
+		assertEquals(chart.date(), date);
+	}
+
 	@Test
 	public void testGetChartForCashboxChartSourceEarliestDate() {
 		ChartSource cashbox = ChartSources.CASHBOX.get();
-		ChartDate earliestDate = cashbox.earliestDate();
-		Chart cashbox19500107 = cashbox.getChart(earliestDate);
-		assertNotNull(cashbox19500107);
-		assertEquals(cashbox19500107.date(), earliestDate);
+		assertCanGetChartForChartSourceByDate(cashbox, cashbox.earliestDate());
+	}
+
+	@Test
+	public void testGetChartForCashboxChartSourceLatestDate() {
+		ChartSource cashbox = ChartSources.CASHBOX.get();
+		assertCanGetChartForChartSourceByDate(cashbox, cashbox.latestDate());		
 	}
 }

@@ -18,7 +18,7 @@ public class CashboxChartSource implements ChartSource {
 
 	@Override
 	public Chart getChart(ChartDate forDate) {
-		return new Chart();
+		return new Chart(forDate);
 	}
 
 }

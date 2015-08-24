@@ -1,9 +1,14 @@
 package misc.top40.chart;
 
 public class Chart {
+	
+	private final ChartDate date;
 
-	public ChartDate date() {
-		return ChartDate.of(1950,1,7);
+	public Chart(ChartDate forDate) {
+		this.date = forDate;
 	}
-
+	
+	public ChartDate date() {
+		return this.date;
+	}
 }

@@ -2,6 +2,7 @@ package misc.top40.chart;
 
 import java.util.GregorianCalendar;
 
+
 @SuppressWarnings("serial")
 public class ChartDate extends GregorianCalendar {
 
@@ -32,5 +33,23 @@ public class ChartDate extends GregorianCalendar {
 		
 		return displayYear + "/" + twoDigitString(displayMonth) + "/" + twoDigitString(displayDay);
 	}
+	
+	public ChartDate copy() {
+		ChartDate copy = new ChartDate();
+		copy.setTimeInMillis(this.getTimeInMillis());
+		return copy;
+	}
+
+	public ChartDate previousWeek() {
+		ChartDate previousWeek = this.copy();
+		previousWeek.add(DAY_OF_YEAR, -7);
+		return previousWeek;
+	}
+	
+	public ChartDate followingWeek() {
+		ChartDate previousWeek = this.copy();
+		previousWeek.add(DAY_OF_YEAR, 7);
+		return previousWeek;
+	}	
 
 }

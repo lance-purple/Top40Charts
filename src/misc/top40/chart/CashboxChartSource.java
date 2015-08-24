@@ -18,7 +18,14 @@ public class CashboxChartSource implements ChartSource {
 
 	@Override
 	public Chart getChart(ChartDate forDate) {
-		return new Chart(forDate);
+		if (forDate.before(EARLIEST_DATE)) {
+			return null;
+		}
+		return new Chart(this, forDate);
+	}
+	
+	public String toString() {
+		return "Cashbox";
 	}
 
 }

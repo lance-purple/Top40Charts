@@ -16,4 +16,9 @@ public class CashboxChartSource implements ChartSource {
 		return LATEST_DATE;
 	}
 
+	@Override
+	public Chart getChart(ChartDate forDate) {
+		return new Chart();
+	}
+
 }

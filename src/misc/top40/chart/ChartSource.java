@@ -6,4 +6,6 @@ public interface ChartSource {
 
 	ChartDate latestDate();
 
+	Chart getChart(ChartDate forDate);
+
 }
